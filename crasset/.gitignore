@@ -1,0 +1,5 @@
+.DS_Store
+*.pkl
+*.zip
+__pycache__
+.vscode
