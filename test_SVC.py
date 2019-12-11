@@ -161,7 +161,7 @@ for score in scores:
     print()
 #------------------------------------------------------------------------------
 #Permet de selectionner
-
+"""
 knn = RandomForestClassifier(criterion='entropy', min_samples_leaf=1, min_samples_split=12, n_estimators=134, n_jobs=-1)
 
 # classifications
@@ -176,3 +176,4 @@ plt.xlabel("Number of features selected")
 plt.ylabel("Cross validation score (nb of correct classifications)")
 plt.plot(range(1, len(rfecv.grid_scores_) + 1), rfecv.grid_scores_)
 plt.show()
+"""
