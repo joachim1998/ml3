@@ -1,0 +1,87 @@
+test_SVC.py avec tuned_parameters = [{ 'C' : [1, 10], 'kernel' : ['linear', 'poly', 'rbf', 'sigmoid'],
+				'gamma' : ['scale', 'auto'], 'degree': np.linspace(3,10,5,dtype='int')}]
+
+0.718 (+/-0.026) for {'kernel': 'linear', 'C': 1, 'gamma': 'scale', 'degree': 3}
+0.750 (+/-0.040) for {'kernel': 'poly', 'C': 1, 'gamma': 'scale', 'degree': 3}
+
+Best score: 0.775 (+/-0.020) for {'kernel': 'rbf', 'C': 1, 'gamma': 'scale', 'degree': 3}
+
+0.672 (+/-0.014) for {'kernel': 'sigmoid', 'C': 1, 'gamma': 'scale', 'degree': 3}
+0.718 (+/-0.026) for {'kernel': 'linear', 'C': 1, 'gamma': 'auto', 'degree': 3}
+0.728 (+/-0.019) for {'kernel': 'poly', 'C': 1, 'gamma': 'auto', 'degree': 3}
+0.745 (+/-0.004) for {'kernel': 'rbf', 'C': 1, 'gamma': 'auto', 'degree': 3}
+0.743 (+/-0.007) for {'kernel': 'sigmoid', 'C': 1, 'gamma': 'auto', 'degree': 3}
+0.718 (+/-0.026) for {'kernel': 'linear', 'C': 1, 'gamma': 'scale', 'degree': 4}
+0.752 (+/-0.036) for {'kernel': 'poly', 'C': 1, 'gamma': 'scale', 'degree': 4}
+0.775 (+/-0.020) for {'kernel': 'rbf', 'C': 1, 'gamma': 'scale', 'degree': 4}
+0.672 (+/-0.014) for {'kernel': 'sigmoid', 'C': 1, 'gamma': 'scale', 'degree': 4}
+0.718 (+/-0.026) for {'kernel': 'linear', 'C': 1, 'gamma': 'auto', 'degree': 4}
+0.735 (+/-0.009) for {'kernel': 'poly', 'C': 1, 'gamma': 'auto', 'degree': 4}
+0.745 (+/-0.004) for {'kernel': 'rbf', 'C': 1, 'gamma': 'auto', 'degree': 4}
+0.743 (+/-0.007) for {'kernel': 'sigmoid', 'C': 1, 'gamma': 'auto', 'degree': 4}
+0.718 (+/-0.026) for {'kernel': 'linear', 'C': 1, 'gamma': 'scale', 'degree': 6}
+0.764 (+/-0.031) for {'kernel': 'poly', 'C': 1, 'gamma': 'scale', 'degree': 6}
+0.775 (+/-0.020) for {'kernel': 'rbf', 'C': 1, 'gamma': 'scale', 'degree': 6}
+0.672 (+/-0.014) for {'kernel': 'sigmoid', 'C': 1, 'gamma': 'scale', 'degree': 6}
+0.718 (+/-0.026) for {'kernel': 'linear', 'C': 1, 'gamma': 'auto', 'degree': 6}
+0.745 (+/-0.009) for {'kernel': 'poly', 'C': 1, 'gamma': 'auto', 'degree': 6}
+0.745 (+/-0.004) for {'kernel': 'rbf', 'C': 1, 'gamma': 'auto', 'degree': 6}
+0.743 (+/-0.007) for {'kernel': 'sigmoid', 'C': 1, 'gamma': 'auto', 'degree': 6}
+0.718 (+/-0.026) for {'kernel': 'linear', 'C': 1, 'gamma': 'scale', 'degree': 8}
+0.758 (+/-0.020) for {'kernel': 'poly', 'C': 1, 'gamma': 'scale', 'degree': 8}
+0.775 (+/-0.020) for {'kernel': 'rbf', 'C': 1, 'gamma': 'scale', 'degree': 8}
+0.672 (+/-0.014) for {'kernel': 'sigmoid', 'C': 1, 'gamma': 'scale', 'degree': 8}
+0.718 (+/-0.026) for {'kernel': 'linear', 'C': 1, 'gamma': 'auto', 'degree': 8}
+0.743 (+/-0.025) for {'kernel': 'poly', 'C': 1, 'gamma': 'auto', 'degree': 8}
+0.745 (+/-0.004) for {'kernel': 'rbf', 'C': 1, 'gamma': 'auto', 'degree': 8}
+0.743 (+/-0.007) for {'kernel': 'sigmoid', 'C': 1, 'gamma': 'auto', 'degree': 8}
+0.718 (+/-0.026) for {'kernel': 'linear', 'C': 1, 'gamma': 'scale', 'degree': 10}
+0.756 (+/-0.018) for {'kernel': 'poly', 'C': 1, 'gamma': 'scale', 'degree': 10}
+0.775 (+/-0.020) for {'kernel': 'rbf', 'C': 1, 'gamma': 'scale', 'degree': 10}
+0.672 (+/-0.014) for {'kernel': 'sigmoid', 'C': 1, 'gamma': 'scale', 'degree': 10}
+0.718 (+/-0.026) for {'kernel': 'linear', 'C': 1, 'gamma': 'auto', 'degree': 10}
+0.736 (+/-0.033) for {'kernel': 'poly', 'C': 1, 'gamma': 'auto', 'degree': 10}
+0.745 (+/-0.004) for {'kernel': 'rbf', 'C': 1, 'gamma': 'auto', 'degree': 10}
+0.743 (+/-0.007) for {'kernel': 'sigmoid', 'C': 1, 'gamma': 'auto', 'degree': 10}
+0.700 (+/-0.029) for {'kernel': 'linear', 'C': 10, 'gamma': 'scale', 'degree': 3}
+0.735 (+/-0.018) for {'kernel': 'poly', 'C': 10, 'gamma': 'scale', 'degree': 3}
+0.768 (+/-0.018) for {'kernel': 'rbf', 'C': 10, 'gamma': 'scale', 'degree': 3}
+0.656 (+/-0.027) for {'kernel': 'sigmoid', 'C': 10, 'gamma': 'scale', 'degree': 3}
+0.700 (+/-0.029) for {'kernel': 'linear', 'C': 10, 'gamma': 'auto', 'degree': 3}
+0.728 (+/-0.019) for {'kernel': 'poly', 'C': 10, 'gamma': 'auto', 'degree': 3}
+0.732 (+/-0.017) for {'kernel': 'rbf', 'C': 10, 'gamma': 'auto', 'degree': 3}
+0.733 (+/-0.017) for {'kernel': 'sigmoid', 'C': 10, 'gamma': 'auto', 'degree': 3}
+0.700 (+/-0.029) for {'kernel': 'linear', 'C': 10, 'gamma': 'scale', 'degree': 4}
+0.732 (+/-0.011) for {'kernel': 'poly', 'C': 10, 'gamma': 'scale', 'degree': 4}
+0.768 (+/-0.018) for {'kernel': 'rbf', 'C': 10, 'gamma': 'scale', 'degree': 4}
+0.656 (+/-0.027) for {'kernel': 'sigmoid', 'C': 10, 'gamma': 'scale', 'degree': 4}
+0.700 (+/-0.029) for {'kernel': 'linear', 'C': 10, 'gamma': 'auto', 'degree': 4}
+0.735 (+/-0.009) for {'kernel': 'poly', 'C': 10, 'gamma': 'auto', 'degree': 4}
+0.732 (+/-0.017) for {'kernel': 'rbf', 'C': 10, 'gamma': 'auto', 'degree': 4}
+0.733 (+/-0.017) for {'kernel': 'sigmoid', 'C': 10, 'gamma': 'auto', 'degree': 4}
+0.700 (+/-0.029) for {'kernel': 'linear', 'C': 10, 'gamma': 'scale', 'degree': 6}
+0.750 (+/-0.015) for {'kernel': 'poly', 'C': 10, 'gamma': 'scale', 'degree': 6}
+0.768 (+/-0.018) for {'kernel': 'rbf', 'C': 10, 'gamma': 'scale', 'degree': 6}
+0.656 (+/-0.027) for {'kernel': 'sigmoid', 'C': 10, 'gamma': 'scale', 'degree': 6}
+0.700 (+/-0.029) for {'kernel': 'linear', 'C': 10, 'gamma': 'auto', 'degree': 6}
+0.745 (+/-0.009) for {'kernel': 'poly', 'C': 10, 'gamma': 'auto', 'degree': 6}
+0.732 (+/-0.017) for {'kernel': 'rbf', 'C': 10, 'gamma': 'auto', 'degree': 6}
+0.733 (+/-0.017) for {'kernel': 'sigmoid', 'C': 10, 'gamma': 'auto', 'degree': 6}
+0.700 (+/-0.029) for {'kernel': 'linear', 'C': 10, 'gamma': 'scale', 'degree': 8}
+0.753 (+/-0.002) for {'kernel': 'poly', 'C': 10, 'gamma': 'scale', 'degree': 8}
+0.768 (+/-0.018) for {'kernel': 'rbf', 'C': 10, 'gamma': 'scale', 'degree': 8}
+0.656 (+/-0.027) for {'kernel': 'sigmoid', 'C': 10, 'gamma': 'scale', 'degree': 8}
+0.700 (+/-0.029) for {'kernel': 'linear', 'C': 10, 'gamma': 'auto', 'degree': 8}
+0.743 (+/-0.025) for {'kernel': 'poly', 'C': 10, 'gamma': 'auto', 'degree': 8}
+0.732 (+/-0.017) for {'kernel': 'rbf', 'C': 10, 'gamma': 'auto', 'degree': 8}
+0.733 (+/-0.017) for {'kernel': 'sigmoid', 'C': 10, 'gamma': 'auto', 'degree': 8}
+0.700 (+/-0.029) for {'kernel': 'linear', 'C': 10, 'gamma': 'scale', 'degree': 10}
+0.755 (+/-0.004) for {'kernel': 'poly', 'C': 10, 'gamma': 'scale', 'degree': 10}
+0.768 (+/-0.018) for {'kernel': 'rbf', 'C': 10, 'gamma': 'scale', 'degree': 10}
+0.656 (+/-0.027) for {'kernel': 'sigmoid', 'C': 10, 'gamma': 'scale', 'degree': 10}
+0.700 (+/-0.029) for {'kernel': 'linear', 'C': 10, 'gamma': 'auto', 'degree': 10}
+0.743 (+/-0.031) for {'kernel': 'poly', 'C': 10, 'gamma': 'auto', 'degree': 10}
+0.732 (+/-0.017) for {'kernel': 'rbf', 'C': 10, 'gamma': 'auto', 'degree': 10}
+0.733 (+/-0.017) for {'kernel': 'sigmoid', 'C': 10, 'gamma': 'auto', 'degree': 10}
+()
+Optimal number of features : 979
