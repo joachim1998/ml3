@@ -1,8 +1,9 @@
-RandomForest.py: tuned_parameters = [{'n_estimators' : [1, 10, 100, 200, 500, 1000], 'max_depth' : [1, 5, 10, 100, None],
+RandomForest.py: tuned_parameters = [{'n_estimators' : [200, 1000, 3000:100:4000], 'max_depth' : [1, 5, 10, 100, None],
 				'bootstrap' : [True, False], 'class_weight' : [None, 'balanced', 'balanced_subsample'] }]
 Best parameters set found on development set:
-{'n_estimators': 200, 'bootstrap': True, 'max_depth': None, 'class_weight': 'balanced_subsample'}
--> 0.785 (+/-0.013)
+{'n_estimators': 3100, 'bootstrap': True, 'max_depth': None, 'class_weight': 'balanced_subsample'}
+-> 0.785 (+/-0.002)
+public score: 0.76789
 Grid scores on development set:
 ()
 0.548 (+/-0.016) for {'n_estimators': 1, 'bootstrap': True, 'max_depth': 1, 'class_weight': None}

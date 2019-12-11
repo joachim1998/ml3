@@ -1,0 +1,65 @@
+DecisionTree.py avec tuned_parameters = [{'C' : [1, 2, 3, 4, 5], 'kernel' : ['rbf', 'poly', 'linear', 'sigmoid']
+                    }]
+
+Best parameters set found on development set:
+()
+0.674 (+/-0.008) for {'min_samples_split': 2, 'min_samples_leaf': 5, 'max_depth': None, 'class_weight': None}
+()
+Grid scores on development set:
+()
+0.601 (+/-0.004) for {'min_samples_split': 2, 'min_samples_leaf': 1, 'max_depth': 1, 'class_weight': None}
+0.601 (+/-0.004) for {'min_samples_split': 5, 'min_samples_leaf': 1, 'max_depth': 1, 'class_weight': None}
+0.601 (+/-0.004) for {'min_samples_split': 10, 'min_samples_leaf': 1, 'max_depth': 1, 'class_weight': None}
+0.601 (+/-0.004) for {'min_samples_split': 2, 'min_samples_leaf': 2, 'max_depth': 1, 'class_weight': None}
+0.601 (+/-0.004) for {'min_samples_split': 5, 'min_samples_leaf': 2, 'max_depth': 1, 'class_weight': None}
+0.601 (+/-0.004) for {'min_samples_split': 10, 'min_samples_leaf': 2, 'max_depth': 1, 'class_weight': None}
+0.601 (+/-0.004) for {'min_samples_split': 2, 'min_samples_leaf': 5, 'max_depth': 1, 'class_weight': None}
+0.601 (+/-0.004) for {'min_samples_split': 5, 'min_samples_leaf': 5, 'max_depth': 1, 'class_weight': None}
+0.601 (+/-0.004) for {'min_samples_split': 10, 'min_samples_leaf': 5, 'max_depth': 1, 'class_weight': None}
+0.543 (+/-0.010) for {'min_samples_split': 2, 'min_samples_leaf': 1, 'max_depth': 10, 'class_weight': None}
+0.540 (+/-0.029) for {'min_samples_split': 5, 'min_samples_leaf': 1, 'max_depth': 10, 'class_weight': None}
+0.568 (+/-0.033) for {'min_samples_split': 10, 'min_samples_leaf': 1, 'max_depth': 10, 'class_weight': None}
+0.556 (+/-0.019) for {'min_samples_split': 2, 'min_samples_leaf': 2, 'max_depth': 10, 'class_weight': None}
+0.559 (+/-0.017) for {'min_samples_split': 5, 'min_samples_leaf': 2, 'max_depth': 10, 'class_weight': None}
+0.569 (+/-0.046) for {'min_samples_split': 10, 'min_samples_leaf': 2, 'max_depth': 10, 'class_weight': None}
+0.638 (+/-0.002) for {'min_samples_split': 2, 'min_samples_leaf': 5, 'max_depth': 10, 'class_weight': None}
+0.638 (+/-0.002) for {'min_samples_split': 5, 'min_samples_leaf': 5, 'max_depth': 10, 'class_weight': None}
+0.642 (+/-0.001) for {'min_samples_split': 10, 'min_samples_leaf': 5, 'max_depth': 10, 'class_weight': None}
+0.620 (+/-0.003) for {'min_samples_split': 2, 'min_samples_leaf': 1, 'max_depth': None, 'class_weight': None}
+0.630 (+/-0.006) for {'min_samples_split': 5, 'min_samples_leaf': 1, 'max_depth': None, 'class_weight': None}
+0.642 (+/-0.007) for {'min_samples_split': 10, 'min_samples_leaf': 1, 'max_depth': None, 'class_weight': None}
+0.635 (+/-0.033) for {'min_samples_split': 2, 'min_samples_leaf': 2, 'max_depth': None, 'class_weight': None}
+0.635 (+/-0.015) for {'min_samples_split': 5, 'min_samples_leaf': 2, 'max_depth': None, 'class_weight': None}
+0.652 (+/-0.012) for {'min_samples_split': 10, 'min_samples_leaf': 2, 'max_depth': None, 'class_weight': None}
+
+0.674 (+/-0.008) for {'min_samples_split': 2, 'min_samples_leaf': 5, 'max_depth': None, 'class_weight': None}
+
+0.670 (+/-0.013) for {'min_samples_split': 5, 'min_samples_leaf': 5, 'max_depth': None, 'class_weight': None}
+0.672 (+/-0.001) for {'min_samples_split': 10, 'min_samples_leaf': 5, 'max_depth': None, 'class_weight': None}
+0.601 (+/-0.004) for {'min_samples_split': 2, 'min_samples_leaf': 1, 'max_depth': 1, 'class_weight': 'balanced'}
+0.601 (+/-0.004) for {'min_samples_split': 5, 'min_samples_leaf': 1, 'max_depth': 1, 'class_weight': 'balanced'}
+0.601 (+/-0.004) for {'min_samples_split': 10, 'min_samples_leaf': 1, 'max_depth': 1, 'class_weight': 'balanced'}
+0.601 (+/-0.004) for {'min_samples_split': 2, 'min_samples_leaf': 2, 'max_depth': 1, 'class_weight': 'balanced'}
+0.601 (+/-0.004) for {'min_samples_split': 5, 'min_samples_leaf': 2, 'max_depth': 1, 'class_weight': 'balanced'}
+0.601 (+/-0.004) for {'min_samples_split': 10, 'min_samples_leaf': 2, 'max_depth': 1, 'class_weight': 'balanced'}
+0.601 (+/-0.004) for {'min_samples_split': 2, 'min_samples_leaf': 5, 'max_depth': 1, 'class_weight': 'balanced'}
+0.601 (+/-0.004) for {'min_samples_split': 5, 'min_samples_leaf': 5, 'max_depth': 1, 'class_weight': 'balanced'}
+0.601 (+/-0.004) for {'min_samples_split': 10, 'min_samples_leaf': 5, 'max_depth': 1, 'class_weight': 'balanced'}
+0.631 (+/-0.061) for {'min_samples_split': 2, 'min_samples_leaf': 1, 'max_depth': 10, 'class_weight': 'balanced'}
+0.624 (+/-0.039) for {'min_samples_split': 5, 'min_samples_leaf': 1, 'max_depth': 10, 'class_weight': 'balanced'}
+0.642 (+/-0.031) for {'min_samples_split': 10, 'min_samples_leaf': 1, 'max_depth': 10, 'class_weight': 'balanced'}
+0.636 (+/-0.043) for {'min_samples_split': 2, 'min_samples_leaf': 2, 'max_depth': 10, 'class_weight': 'balanced'}
+0.639 (+/-0.034) for {'min_samples_split': 5, 'min_samples_leaf': 2, 'max_depth': 10, 'class_weight': 'balanced'}
+0.644 (+/-0.021) for {'min_samples_split': 10, 'min_samples_leaf': 2, 'max_depth': 10, 'class_weight': 'balanced'}
+0.629 (+/-0.024) for {'min_samples_split': 2, 'min_samples_leaf': 5, 'max_depth': 10, 'class_weight': 'balanced'}
+0.629 (+/-0.025) for {'min_samples_split': 5, 'min_samples_leaf': 5, 'max_depth': 10, 'class_weight': 'balanced'}
+0.627 (+/-0.027) for {'min_samples_split': 10, 'min_samples_leaf': 5, 'max_depth': 10, 'class_weight': 'balanced'}
+0.642 (+/-0.003) for {'min_samples_split': 2, 'min_samples_leaf': 1, 'max_depth': None, 'class_weight': 'balanced'}
+0.639 (+/-0.009) for {'min_samples_split': 5, 'min_samples_leaf': 1, 'max_depth': None, 'class_weight': 'balanced'}
+0.642 (+/-0.001) for {'min_samples_split': 10, 'min_samples_leaf': 1, 'max_depth': None, 'class_weight': 'balanced'}
+0.634 (+/-0.006) for {'min_samples_split': 2, 'min_samples_leaf': 2, 'max_depth': None, 'class_weight': 'balanced'}
+0.640 (+/-0.008) for {'min_samples_split': 5, 'min_samples_leaf': 2, 'max_depth': None, 'class_weight': 'balanced'}
+0.636 (+/-0.003) for {'min_samples_split': 10, 'min_samples_leaf': 2, 'max_depth': None, 'class_weight': 'balanced'}
+0.661 (+/-0.020) for {'min_samples_split': 2, 'min_samples_leaf': 5, 'max_depth': None, 'class_weight': 'balanced'}
+0.663 (+/-0.006) for {'min_samples_split': 5, 'min_samples_leaf': 5, 'max_depth': None, 'class_weight': 'balanced'}
+0.664 (+/-0.034) for {'min_samples_split': 10, 'min_samples_leaf': 5, 'max_depth': None, 'class_weight': 'balanced'}

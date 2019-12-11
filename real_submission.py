@@ -106,12 +106,12 @@ def create_fingerprints(chemical_compounds):
     """
     n_chem = chemical_compounds.shape[0]
 
-    nBits = 124
+    nBits = 10000
     X = np.zeros((n_chem, nBits))
 
     for i in range(n_chem):
         m = Chem.MolFromSmiles(chemical_compounds[i])
-        X[i,:] = AllChem.GetMorganFingerprintAsBitVect(m,2,nBits=124)
+        X[i,:] = AllChem.GetMorganFingerprintAsBitVect(m,2,nBits)
 
     return X
 
@@ -167,7 +167,7 @@ def make_submission(y_predicted, auc_predicted, file_name="submission", date=Tru
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Make a toy submission")
 
-    path_ordi = "C:/Users/Antho/Google Drive/AAAM1-Q1/Machine Learning/Project 3/"
+    path_ordi = "D:/Elodie/Documents/ULg/Master 2/Machine learning/Projets/3/"
 
     parser.add_argument("--ls", default=path_ordi + "training_set.csv",
                         help="Path to the learning set as CSV file")
@@ -193,26 +193,10 @@ if __name__ == '__main__':
     y_LS = LS["ACTIVE"].values
 
 #    Build the model
-#    model=SVC(C=3.0, gamma='scale', probability =True, max_iter=-1)
-    X_LS, X_test, y_LS, y_test = train_test_split(X_LS, y_LS, test_size=0.33)
-
-    model = Pipeline([
-      ('feature_selection', SelectFromModel(RandomForestClassifier(max_depth=21, n_jobs=-1, criterion='entropy',n_estimators=400))),
-      ('classification', MLPClassifier(activation='tanh', learning_rate='invscaling'))
-    ])
-    components = np.linspace(67, 67, 1, dtype='int')
-
-    for x in components:
-
-        model = make_pipeline(PCA(n_components=x), KNeighborsClassifier(n_neighbors=53, weights='distance', algorithm='auto', n_jobs=-1))
-
-#        with measure_time('Training'):
+    model=RandomForestClassifier(n_estimators=3100, criterion='entropy', class_weight='balanced_subsample', max_depth=None, bootstrap=True, n_jobs=-1, verbose=10)
+    
+    with measure_time('Training'):
         model.fit(X_LS, y_LS)
-        scores = cross_val_score(model, X_test, y_test, scoring='roc_auc', cv=StratifiedKFold(5))
-
-#        print()
-        print("ROC_AUC: %0.2f (+/- %0.2f) | nbr_components: %d" % (scores.mean(), scores.std() * 2, x))
-#        print()
 
 
 ##    # PREDICTION
@@ -225,7 +209,7 @@ if __name__ == '__main__':
     y_pred = model.predict_proba(X_TS)[:,1]
 
     # Estimated AUC of the model
-    auc_predicted = 0.50 # it seems a bit pessimistic, right?
+    auc_predicted = 0.75 # it seems a bit pessimistic, right?
 
     # Making the submission file
     fname = make_submission(y_pred, auc_predicted, 'toy_submission_DT')

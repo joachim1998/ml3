@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Test the SVC estimator for different values of C, degree and different kind of
-kernel
+Test of Decision tree for varying parameters
 
 """
 import argparse
@@ -9,7 +8,7 @@ import argparse
 from real_submission import load_from_csv
 from real_submission import measure_time
 from real_submission import create_fingerprints
-from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import GridSearchCV
 
 
@@ -43,7 +42,7 @@ if __name__ == '__main__':
 
 
 # Set the parameters by cross-validation
-tuned_parameters = [{'C' : [1, 2, 3, 4, 5], 'kernel' : ['rbf', 'poly', 'linear', 'sigmoid']
+tuned_parameters = [{ 'max_depth' : [1,10,None], 'min_samples_split' : [2, 5, 10], 'min_samples_leaf' : [1, 2, 5], 'class_weight' : [None, 'balanced']
                     }]
 scores = ['roc_auc']
 
@@ -53,7 +52,7 @@ for score in scores:
     print()
 
     # Chercher GridSearchCV dans documentation
-    clf = GridSearchCV(SVC(kernel='rbf', degree=3, gamma='scale', probability=True, class_weight='balanced'), tuned_parameters, cv=2, scoring='%s' % score, n_jobs=-1, verbose=10)
+    clf = GridSearchCV(DecisionTreeClassifier(criterion='entropy'), tuned_parameters, cv=2, scoring='%s' % score, n_jobs=-1, verbose=10)
     clf.fit(X_LS, y_LS)
 
     print("Best parameters set found on development set:")
@@ -68,3 +67,4 @@ for score in scores:
         print("%0.3f (+/-%0.03f) for %r"
               % (mean, std * 2, params))
     print()
+
