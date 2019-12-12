@@ -1,0 +1,94 @@
+KNN:
+
+tuned_parameters = [{'n_neighbors': list(range(1,200,20)), 'weights': ['uniform', 'distance'], 'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute']
+                   }]
+scores = ['roc_auc']
+clf = GridSearchCV(KNeighborsClassifier(), tuned_parameters, cv=2, scoring='%s' % score, n_jobs=-1, verbose=10)
+
+
+Best parameters set found on development set:
+
+{'algorithm': 'brute', 'n_neighbors': 21, 'weights': 'distance'}
+
+Grid scores on development set:
+
+0.629 (+/-0.005) for {'algorithm': 'auto', 'n_neighbors': 1, 'weights': 'uniform'}
+0.629 (+/-0.005) for {'algorithm': 'auto', 'n_neighbors': 1, 'weights': 'distance'}
+0.741 (+/-0.010) for {'algorithm': 'auto', 'n_neighbors': 21, 'weights': 'uniform'}
+0.745 (+/-0.005) for {'algorithm': 'auto', 'n_neighbors': 21, 'weights': 'distance'}
+0.733 (+/-0.030) for {'algorithm': 'auto', 'n_neighbors': 41, 'weights': 'uniform'}
+0.744 (+/-0.022) for {'algorithm': 'auto', 'n_neighbors': 41, 'weights': 'distance'}
+0.725 (+/-0.002) for {'algorithm': 'auto', 'n_neighbors': 61, 'weights': 'uniform'}
+0.739 (+/-0.008) for {'algorithm': 'auto', 'n_neighbors': 61, 'weights': 'distance'}
+0.732 (+/-0.004) for {'algorithm': 'auto', 'n_neighbors': 81, 'weights': 'uniform'}
+0.743 (+/-0.008) for {'algorithm': 'auto', 'n_neighbors': 81, 'weights': 'distance'}
+0.726 (+/-0.002) for {'algorithm': 'auto', 'n_neighbors': 101, 'weights': 'uniform'}
+0.736 (+/-0.009) for {'algorithm': 'auto', 'n_neighbors': 101, 'weights': 'distance'}
+0.727 (+/-0.018) for {'algorithm': 'auto', 'n_neighbors': 121, 'weights': 'uniform'}
+0.738 (+/-0.001) for {'algorithm': 'auto', 'n_neighbors': 121, 'weights': 'distance'}
+0.729 (+/-0.015) for {'algorithm': 'auto', 'n_neighbors': 141, 'weights': 'uniform'}
+0.740 (+/-0.001) for {'algorithm': 'auto', 'n_neighbors': 141, 'weights': 'distance'}
+0.728 (+/-0.014) for {'algorithm': 'auto', 'n_neighbors': 161, 'weights': 'uniform'}
+0.739 (+/-0.001) for {'algorithm': 'auto', 'n_neighbors': 161, 'weights': 'distance'}
+0.719 (+/-0.030) for {'algorithm': 'auto', 'n_neighbors': 181, 'weights': 'uniform'}
+0.731 (+/-0.012) for {'algorithm': 'auto', 'n_neighbors': 181, 'weights': 'distance'}
+0.629 (+/-0.005) for {'algorithm': 'ball_tree', 'n_neighbors': 1, 'weights': 'uniform'}
+0.629 (+/-0.005) for {'algorithm': 'ball_tree', 'n_neighbors': 1, 'weights': 'distance'}
+0.742 (+/-0.010) for {'algorithm': 'ball_tree', 'n_neighbors': 21, 'weights': 'uniform'}
+0.745 (+/-0.006) for {'algorithm': 'ball_tree', 'n_neighbors': 21, 'weights': 'distance'}
+0.736 (+/-0.032) for {'algorithm': 'ball_tree', 'n_neighbors': 41, 'weights': 'uniform'}
+0.746 (+/-0.024) for {'algorithm': 'ball_tree', 'n_neighbors': 41, 'weights': 'distance'}
+0.727 (+/-0.010) for {'algorithm': 'ball_tree', 'n_neighbors': 61, 'weights': 'uniform'}
+0.740 (+/-0.002) for {'algorithm': 'ball_tree', 'n_neighbors': 61, 'weights': 'distance'}
+0.733 (+/-0.006) for {'algorithm': 'ball_tree', 'n_neighbors': 81, 'weights': 'uniform'}
+0.743 (+/-0.007) for {'algorithm': 'ball_tree', 'n_neighbors': 81, 'weights': 'distance'}
+0.726 (+/-0.007) for {'algorithm': 'ball_tree', 'n_neighbors': 101, 'weights': 'uniform'}
+0.736 (+/-0.006) for {'algorithm': 'ball_tree', 'n_neighbors': 101, 'weights': 'distance'}
+0.727 (+/-0.017) for {'algorithm': 'ball_tree', 'n_neighbors': 121, 'weights': 'uniform'}
+0.738 (+/-0.001) for {'algorithm': 'ball_tree', 'n_neighbors': 121, 'weights': 'distance'}
+0.728 (+/-0.023) for {'algorithm': 'ball_tree', 'n_neighbors': 141, 'weights': 'uniform'}
+0.739 (+/-0.005) for {'algorithm': 'ball_tree', 'n_neighbors': 141, 'weights': 'distance'}
+0.730 (+/-0.018) for {'algorithm': 'ball_tree', 'n_neighbors': 161, 'weights': 'uniform'}
+0.740 (+/-0.002) for {'algorithm': 'ball_tree', 'n_neighbors': 161, 'weights': 'distance'}
+0.720 (+/-0.017) for {'algorithm': 'ball_tree', 'n_neighbors': 181, 'weights': 'uniform'}
+0.732 (+/-0.003) for {'algorithm': 'ball_tree', 'n_neighbors': 181, 'weights': 'distance'}
+0.629 (+/-0.005) for {'algorithm': 'kd_tree', 'n_neighbors': 1, 'weights': 'uniform'}
+0.629 (+/-0.005) for {'algorithm': 'kd_tree', 'n_neighbors': 1, 'weights': 'distance'}
+0.741 (+/-0.010) for {'algorithm': 'kd_tree', 'n_neighbors': 21, 'weights': 'uniform'}
+0.745 (+/-0.005) for {'algorithm': 'kd_tree', 'n_neighbors': 21, 'weights': 'distance'}
+0.733 (+/-0.030) for {'algorithm': 'kd_tree', 'n_neighbors': 41, 'weights': 'uniform'}
+0.744 (+/-0.022) for {'algorithm': 'kd_tree', 'n_neighbors': 41, 'weights': 'distance'}
+0.725 (+/-0.002) for {'algorithm': 'kd_tree', 'n_neighbors': 61, 'weights': 'uniform'}
+0.739 (+/-0.008) for {'algorithm': 'kd_tree', 'n_neighbors': 61, 'weights': 'distance'}
+0.732 (+/-0.004) for {'algorithm': 'kd_tree', 'n_neighbors': 81, 'weights': 'uniform'}
+0.743 (+/-0.008) for {'algorithm': 'kd_tree', 'n_neighbors': 81, 'weights': 'distance'}
+0.726 (+/-0.002) for {'algorithm': 'kd_tree', 'n_neighbors': 101, 'weights': 'uniform'}
+0.736 (+/-0.009) for {'algorithm': 'kd_tree', 'n_neighbors': 101, 'weights': 'distance'}
+0.727 (+/-0.018) for {'algorithm': 'kd_tree', 'n_neighbors': 121, 'weights': 'uniform'}
+0.738 (+/-0.001) for {'algorithm': 'kd_tree', 'n_neighbors': 121, 'weights': 'distance'}
+0.729 (+/-0.015) for {'algorithm': 'kd_tree', 'n_neighbors': 141, 'weights': 'uniform'}
+0.740 (+/-0.001) for {'algorithm': 'kd_tree', 'n_neighbors': 141, 'weights': 'distance'}
+0.728 (+/-0.014) for {'algorithm': 'kd_tree', 'n_neighbors': 161, 'weights': 'uniform'}
+0.739 (+/-0.001) for {'algorithm': 'kd_tree', 'n_neighbors': 161, 'weights': 'distance'}
+0.719 (+/-0.030) for {'algorithm': 'kd_tree', 'n_neighbors': 181, 'weights': 'uniform'}
+0.731 (+/-0.012) for {'algorithm': 'kd_tree', 'n_neighbors': 181, 'weights': 'distance'}
+0.629 (+/-0.005) for {'algorithm': 'brute', 'n_neighbors': 1, 'weights': 'uniform'}
+0.629 (+/-0.005) for {'algorithm': 'brute', 'n_neighbors': 1, 'weights': 'distance'}
+0.742 (+/-0.010) for {'algorithm': 'brute', 'n_neighbors': 21, 'weights': 'uniform'}
+0.747 (+/-0.008) for {'algorithm': 'brute', 'n_neighbors': 21, 'weights': 'distance'}
+0.731 (+/-0.019) for {'algorithm': 'brute', 'n_neighbors': 41, 'weights': 'uniform'}
+0.743 (+/-0.009) for {'algorithm': 'brute', 'n_neighbors': 41, 'weights': 'distance'}
+0.731 (+/-0.012) for {'algorithm': 'brute', 'n_neighbors': 61, 'weights': 'uniform'}
+0.743 (+/-0.002) for {'algorithm': 'brute', 'n_neighbors': 61, 'weights': 'distance'}
+0.732 (+/-0.007) for {'algorithm': 'brute', 'n_neighbors': 81, 'weights': 'uniform'}
+0.743 (+/-0.005) for {'algorithm': 'brute', 'n_neighbors': 81, 'weights': 'distance'}
+0.731 (+/-0.014) for {'algorithm': 'brute', 'n_neighbors': 101, 'weights': 'uniform'}
+0.741 (+/-0.003) for {'algorithm': 'brute', 'n_neighbors': 101, 'weights': 'distance'}
+0.731 (+/-0.019) for {'algorithm': 'brute', 'n_neighbors': 121, 'weights': 'uniform'}
+0.741 (+/-0.001) for {'algorithm': 'brute', 'n_neighbors': 121, 'weights': 'distance'}
+0.731 (+/-0.006) for {'algorithm': 'brute', 'n_neighbors': 141, 'weights': 'uniform'}
+0.742 (+/-0.010) for {'algorithm': 'brute', 'n_neighbors': 141, 'weights': 'distance'}
+0.728 (+/-0.017) for {'algorithm': 'brute', 'n_neighbors': 161, 'weights': 'uniform'}
+0.739 (+/-0.001) for {'algorithm': 'brute', 'n_neighbors': 161, 'weights': 'distance'}
+0.728 (+/-0.015) for {'algorithm': 'brute', 'n_neighbors': 181, 'weights': 'uniform'}
+0.736 (+/-0.003) for {'algorithm': 'brute', 'n_neighbors': 181, 'weights': 'distance'}
