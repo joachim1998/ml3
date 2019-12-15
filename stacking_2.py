@@ -199,10 +199,6 @@ if __name__ == '__main__':
     # Predict
     y_pred = stck_clf.predict_proba(meta_test)[:,1]
 
-    # Calculate accuracy
-    acc = accuracy_score(y_test, y_pred)
-    print('Stacking {} Accuracy: {:.2f}%'.format(stck_clf.__class__.__name__, acc * 100))
-
     # Making the submission file
     fname = make_submission(y_pred, auc_predicted, 'stacking_prediction')
     print('Submission file "{}" successfully written'.format(fname))
