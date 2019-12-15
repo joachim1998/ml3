@@ -78,12 +78,6 @@ if __name__ == '__main__':
     #==============================================================================
     SEED = 2018
 
-    #X, y = make_classification(n_samples=10000, n_features=40, n_redundant=0,
-    #                           n_classes=2, random_state=SEED)
-
-    #X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3,
-    #                                                    random_state=SEED)
-
     # Load training data
     LS = load_from_csv(args.ls)
     # Load test data
@@ -105,26 +99,6 @@ if __name__ == '__main__':
                 ]
     stck_clf = LogisticRegression()
 
-    #==============================================================================
-    # Evaluate Base estimators separately
-    #==============================================================================
-    """
-    for clf in base_clf:
-        
-        # Set seed
-        if 'random_state' in clf.get_params().keys():
-            clf.set_params(random_state=SEED)
-        
-        # Fit model
-        clf.fit(X_train, y_train)
-        
-        # Predict
-        y_pred = clf.predict(X_test)
-        
-        # Calculate accuracy
-        acc = accuracy_score(y_test, y_pred)
-        print('{} Accuracy: {:.2f}%'.format(clf.__class__.__name__, acc * 100))
-    """
     #==============================================================================
     # Create Hold Out predictions (meta-features)
     #==============================================================================
@@ -163,7 +137,7 @@ if __name__ == '__main__':
     #==============================================================================
     # Create meta-features for training data
     #==============================================================================
-    # Define 4-fold CV
+    # Define 2-fold CV
     cv = KFold(n_splits=2, random_state=SEED)
     print("Create meta-features for training data")
     # Loop over classifier to produce meta features
@@ -214,19 +188,15 @@ if __name__ == '__main__':
         meta_train = np.concatenate((meta_train, X_train), axis=1)
         meta_test = np.concatenate((meta_test, X_test), axis=1)
 
+    scores=cross_val_score(stck_clf, meta_train, y_train, cv=KFold(n_splits=3, shuffle =True, random_state=13), scoring='roc_auc', n_jobs=-1, verbose=1)
+    print(scores)
+
     # Fit model
-    stck_clf.fit(meta_train, y_train)
+    #stck_clf.fit(meta_train, y_train)
 
     # Predict
-    y_pred = stck_clf.predict_proba(meta_test)[:,1]
-
-    # Calculate accuracy
-    #acc = accuracy_score(y_test, y_pred)
-    #print('Stacking {} Accuracy: {:.2f}%'.format(stck_clf.__class__.__name__, acc * 100))
-
-    # Estimated AUC of the model
-    auc_predicted = 0.50 # it seems a bit pessimistic, right?
+    #y_pred = stck_clf.predict_proba(meta_test)[:,1]
 
     # Making the submission file
-    fname = make_submission(y_pred, auc_predicted, 'stacking_prediction')
-    print('Submission file "{}" successfully written'.format(fname))
+    #fname = make_submission(y_pred, auc_predicted, 'stacking_prediction')
+    #print('Submission file "{}" successfully written'.format(fname))
