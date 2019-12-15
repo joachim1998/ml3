@@ -190,19 +190,19 @@ if __name__ == '__main__':
         meta_train = np.concatenate((meta_train, X_train), axis=1)
         meta_test = np.concatenate((meta_test, X_test), axis=1)
 
-    scores=cross_val_score(stck_clf, meta_train, y_train, cv=KFold(n_splits=3, shuffle =True, random_state=13), scoring='roc_auc', n_jobs=-1, verbose=1)
-    print(scores)
+    #scores=cross_val_score(stck_clf, meta_train, y_train, cv=KFold(n_splits=3, shuffle =True, random_state=13), scoring='roc_auc', n_jobs=-1, verbose=1)
+    #print(scores)
 
     # Fit model
-    #stck_clf.fit(meta_train, y_train)
+    stck_clf.fit(meta_train, y_train)
 
     # Predict
-    #y_pred = stck_clf.predict_proba(meta_test)[:,1]
+    y_pred = stck_clf.predict_proba(meta_test)[:,1]
 
     # Calculate accuracy
-    #acc = accuracy_score(y_test, y_pred)
-    #print('Stacking {} Accuracy: {:.2f}%'.format(stck_clf.__class__.__name__, acc * 100))
+    acc = accuracy_score(y_test, y_pred)
+    print('Stacking {} Accuracy: {:.2f}%'.format(stck_clf.__class__.__name__, acc * 100))
 
     # Making the submission file
-    #fname = make_submission(y_pred, auc_predicted, 'stacking_prediction')
-    #print('Submission file "{}" successfully written'.format(fname))
+    fname = make_submission(y_pred, auc_predicted, 'stacking_prediction')
+    print('Submission file "{}" successfully written'.format(fname))
