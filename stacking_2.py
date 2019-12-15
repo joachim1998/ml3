@@ -57,6 +57,8 @@ from rdkit.Chem import AllChem
 from copy import copy as make_copy
 
 
+##### NOT OUR CODE, found it on https://github.com/dawidkopczyk/blog/blob/master/stacking.py #####
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Make a toy submission")
