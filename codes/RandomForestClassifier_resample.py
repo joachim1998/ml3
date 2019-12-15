@@ -1,0 +1,78 @@
+"""
+Use of "resample" to balance the dataset
+
+"""
+import argparse
+import pandas as pd
+
+from real_submission import load_from_csv
+from real_submission import measure_time
+from real_submission import create_fingerprints
+
+from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.utils import resample
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Make a toy submission")
+
+    path_ordi = "D:/Elodie/Documents/ULg/Master 2/Machine learning/Projets/3/"
+
+    parser.add_argument("--ls", default=path_ordi + "training_set.csv",
+                        help="Path to the learning set as CSV file")
+    parser.add_argument("--ts", default=path_ordi + "test_set.csv",
+                        help="Path to the test set as CSV file")
+    parser.add_argument("--dt", action="store_true", default=True,
+                        help="Use a decision tree classifier (by default, "
+                             "make a random prediction)")
+
+    args = parser.parse_args()
+
+    # Load training data
+    LS = load_from_csv(args.ls)
+    # Load test data
+    TS = load_from_csv(args.ts)
+     
+    # Differenciation of the two classes
+    majority = LS[LS.ACTIVE==0]
+    minority = LS[LS.ACTIVE==1]
+    # Upsample minority class
+    minority_upsampled = resample(minority, 
+                                 replace=True,     # sample with replacement
+                                 n_samples=len(majority),    # to match majority class
+                                 random_state=0) # reproducible results
+    # Combine majority class with upsampled minority class
+    LS_upsampled = pd.concat([majority, minority_upsampled])
+     
+    # -------------------------- Model --------------------------- #
+ 
+    # LEARNING
+    # Create fingerprint features and output
+    with measure_time("Creating fingerprint"):
+        X_LS = create_fingerprints(LS_upsampled["SMILES"].values)
+    y_LS = LS_upsampled["ACTIVE"].values
+ 
+ 
+    # Set the parameters by cross-validation
+    tuned_parameters = [{ # every hyper-parameter can be tested
+                        }]
+    scores = ['roc_auc']
+     
+    for score in scores:
+     
+        # Chercher GridSearchCV dans documentation
+        clf = GridSearchCV(RandomForestClassifier(n_estimators=3100,
+                                                  bootstrap=True, max_depth= None,
+                                                  class_weight='balanced_subsample',
+                                                  n_jobs=-1),
+    tuned_parameters, cv=3, scoring='%s' % score, n_jobs=-1, verbose=10)
+     
+        print("Best parameters set found on development set:")
+        print(clf.best_params_)
+        print()
+        print("Grid scores on development set:")
+        means = clf.cv_results_['mean_test_score']
+        stds = clf.cv_results_['std_test_score']
+        for mean, std, params in zip(means, stds, clf.cv_results_['params']):
+            print("%0.3f (+/-%0.03f) for %r"
+                  % (mean, std * 2, params))
